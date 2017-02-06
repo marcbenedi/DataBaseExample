@@ -36,8 +36,8 @@ public class MyDataBaseHelper extends SQLiteOpenHelper{
     public static MyDataBaseHelper getInstance(Context c){
         if(instance == null){
             instance = new MyDataBaseHelper(c);
-            writable = instance.getWritableDatabase();
-            readable = instance.getReadableDatabase();
+            if (writable == null) writable = instance.getWritableDatabase();
+            if (readable == null) readable = instance.getReadableDatabase();
         }
         return instance;
     }
