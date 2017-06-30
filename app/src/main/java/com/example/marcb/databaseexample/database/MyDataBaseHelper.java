@@ -98,11 +98,14 @@ public class MyDataBaseHelper extends SQLiteOpenHelper{
 
         String returnValue = "Not found";
 
-        if(c.moveToFirst()){
-            //We go here if the cursor is not empty
-            long l = c.getLong(c.getColumnIndex(MyDataBaseContract.Table1._ID));
-            returnValue = String.valueOf(l);
+        if (c.moveToFirst()) {
+            do {
+                //We go here if the cursor is not empty
+                long l = c.getLong(c.getColumnIndex(MyDataBaseContract.Table1._ID));
+                returnValue = String.valueOf(l);
+            } while (c.moveToNext());
         }
+
         //Always close the cursor after you finished using it
         c.close();
 
