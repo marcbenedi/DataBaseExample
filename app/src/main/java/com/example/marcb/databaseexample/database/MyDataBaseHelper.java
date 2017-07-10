@@ -118,6 +118,9 @@ public class MyDataBaseHelper extends SQLiteOpenHelper{
         //Always close the SQLiteDatabase
         writable.close();
         readable.close();
+        instance = null;
+        writable = null;
+        readable = null;
         Log.v(TAG,"close()");
     }
 }
